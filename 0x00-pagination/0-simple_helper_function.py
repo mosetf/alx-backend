@@ -3,9 +3,10 @@
 from typing import List
 
 
-def index_range(page: int , page_size: int) -> List[int]:
+def index_range(page: int, page_size: int) -> List[int]:
     """
-    Return a tuple of the start and end indices for the given page and page size.
+    Return a tuple of the start and end indices for
+    the given page and page size.
 
     Args:
         page (int): The page number.
