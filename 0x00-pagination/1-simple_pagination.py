@@ -54,8 +54,8 @@ class Server:
         Returns:
             List[List]: The data corresponding to the specified page.
         """
-        #checks if the passed values are of type int
-        assert type(page) == int and type(page_size) ==int
+        # checks if the passed values are of type int
+        assert type(page) is int and type(page_size) is int
         assert page > 0
         assert page_size > 0
 
