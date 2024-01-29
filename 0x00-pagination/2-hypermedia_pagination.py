@@ -75,8 +75,8 @@ class Server:
                 Dict: A dictionary containing hypermedia
                 pagination information.
             """
-            x = self.__dataset
-            total_pages = (len(x) + page_size - 1) // page_size
+            x = self.dataset()
+            total_pages = (len(x) + page_size - 1) / page_size
             return {
                 "page_size": len(page_size),
                 "page": page,
