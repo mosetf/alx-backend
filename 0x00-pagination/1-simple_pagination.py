@@ -56,8 +56,7 @@ class Server:
         """
         # checks if the passed values are of type int
         assert type(page) is int and type(page_size) is int
-        assert page > 0
-        assert page_size > 0
+        assert page > 0 and page_size > 0
 
         indices = index_range(page, page_size)
         start_index, end_index = indices
