@@ -7,7 +7,7 @@ import math
 
 def index_range(page: int, page_size: int) -> List[int]:
     """
-    Return a tuple of the start_index and end_index indices for
+    Return a tuple of the start and end indices for
     the given page and page size.
 
     Args:
@@ -15,13 +15,13 @@ def index_range(page: int, page_size: int) -> List[int]:
         page_size (int): The number of items per page.
 
     Returns:
-        tuple: A tuple containing the start_index and end_index indices.
+        tuple: A tuple containing the start and end indices.
 
     """
-    start_index_index = (page - 1) * page_size
-    end__index_index = start_index_index + page_size
+    start_index = (page - 1) * page_size
+    end_index = start_index + page_size
 
-    return (start_index_index, end__index_index)
+    return (start_index, end_index)
 
 
 class Server:
@@ -59,9 +59,9 @@ class Server:
         assert page > 0 and page_size > 0
 
         indices = index_range(page, page_size)
-        start_index_index, end__index_index = indices
+        start_index, end_index = indices
 
-        return self.dataset()[start_index_index:end__index_index]
+        return self.dataset()[start_index:end_index]
 
         def get_hyper(self, page: int, page_size: int) -> Dict:
             """
@@ -76,13 +76,13 @@ class Server:
                 pagination information.
             """
             x = self.__dataset
-            start_index, end_index = index_range(page, page_size)
+            start, end = index_range(page, page_size)
             total_pages = (len(x)) // page_size
             return {
                 "page_size": len(page_size),
                 "page": page,
                 "data": self.get_page(page, page_size),
-                "next_page": page + 1 if end_index < len(self.__dataset) else None,
-                "prev_page": page - 1 if start_index > 0 else None,
+                "next_page": page + 1 if end < len(self.__dataset) else None,
+                "prev_page": page - 1 if start > 0 else None,
                 "total_pages": total_pages
             }
