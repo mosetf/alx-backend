@@ -42,24 +42,26 @@ class Server:
         and page size.
 
         Args:
-            index (int, optional): The starting index of the subset. Default
-             to None.
-            page_size (int, optional): The number of items to include in
-            the subset. Defaults to 10.
+            index (int, optional): The starting index of the subset. Defaults to None.
+            page_size (int, optional): The number of items to include in the subset. Defaults to 10.
 
         Returns:
-            dict: A dictionary containing the index, next_index, page_size,
-            and data of the subset.
+            dict: A dictionary containing the index, next_index, page_size, and data of the subset.
         """
         data = self.indexed_dataset()
-        if index is None:
-            index = 0
-
-        assert index >= 0 and index <= max(data.keys())
-
-        page_data = list(data.values())[index:index + page_size]
-        x = page_size
-        next_index = index + page_size if index + x <= max(data.keys()) else None
+        assert index is not None and index >= 0 and index <= max(data.keys())
+        page_data = []
+        data_count = 0
+        next_index = None
+        start = index if index else 0
+        for i, item in data.items():
+            if i >= start and data_count < page_size:
+                page_data.append(item)
+                data_count += 1
+                continue
+            if data_count == page_size:
+                next_index = i
+                break
 
         return {
             'index': index,
