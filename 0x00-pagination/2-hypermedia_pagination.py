@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ Simple helper function """
-from typing import List
+from typing import List,Dict
 import csv
 import math
 
@@ -62,3 +62,16 @@ class Server:
         start_index, end_index = indices
 
         return self.dataset()[start_index:end_index]
+
+        def get_hyper(self, page: int, pagesize: int) -> Dict:
+            """
+            Retrieve hypermedia pagination information.
+
+            Args:
+                page (int): The current page number.
+                pagesize (int): The number of items per page.
+
+            Returns:
+                Dict: A dictionary containing hypermedia pagination information.
+            """
+
