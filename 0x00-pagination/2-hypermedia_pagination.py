@@ -62,27 +62,26 @@ class Server:
         start_index, end_index = indices
 
         return self.dataset()[start_index:end_index]
+    def get_hyper(self, page: int, page_size: int) -> Dict:
+        """
+        Retrieve hypermedia pagination information.
+        
+        Args:
+            page (int): The current page number.
+            page_size (int): The number of items per page.
 
-        def get_hyper(self, page: int, page_size: int) -> Dict:
-            """
-            Retrieve hypermedia pagination information.
-
-            Args:
-                page (int): The current page number.
-                page_size (int): The number of items per page.
-
-            Returns:
-                Dict: A dictionary containing hypermedia
-                pagination information.
-            """
-            x = self.__dataset
-            start, end = index_range(page, page_size)
-            total_pages = math.ceil(len(x) / page_size)
-            return {
-                "page_size": len(page_size),
-                "page": page,
-                "data": self.get_page(page, page_size),
-                "next_page": page + 1 if end < len(self.__dataset) else None,
-                "prev_page": page - 1 if start > 0 else None,
-                "total_pages": total_pages
-            }
+        Returns:
+            Dict: A dictionary containing hypermedia
+            pagination information.
+        """
+        x = self.dataset()
+        start, end = index_range(page, page_size)
+        total_pages = (len(x) + page_size - 1) // page_size
+        return {
+            "page_size": len(self.get_page(page, page_size)),
+            "page": page,
+            "data": self.get_page(page, page_size),
+            "next_page": page + 1 if end < len(self.__dataset) else None,
+            "prev_page": page - 1 if start > 0 else None,
+            "total_pages": total_pages
+        }
