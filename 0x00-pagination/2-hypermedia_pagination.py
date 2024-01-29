@@ -77,7 +77,7 @@ class Server:
             """
             x = self.__dataset
             start, end = index_range(page, page_size)
-            total_pages = (len(x)) // page_size
+            total_pages = math.ceil(len(x)) / page_size
             return {
                 "page_size": len(page_size),
                 "page": page,
