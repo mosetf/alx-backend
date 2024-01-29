@@ -2,7 +2,7 @@
 """Deletion-resilient hypermedia pagination"""
 import csv
 import math
-from typing import List
+from typing import List, Dict
 
 
 class Server:
@@ -51,18 +51,18 @@ class Server:
             dict: A dictionary containing the index, next_index, page_size,
             and data of the subset.
         """
+        data = self.indexed_dataset()
         if index is None:
             index = 0
 
-        assert 0 <= index < len(self.dataset())
+        assert index >= 0 and index <= max(data.keys())
 
-        next_index = index + page_size
-
-        data = self.dataset()[index:next_index]
+        page_data = list(data.values())[index:index + page_size]
+        next_index = index + page_size if index + page_size <= max(data.keys()) else None
 
         return {
-            "index": index,
-            "next_index": next_index,
-            "page_size": page_size,
-            "data": data,
+            'index': index,
+            'next_index': next_index,
+            'page_size': len(page_data),
+            'data': page_data,
         }
