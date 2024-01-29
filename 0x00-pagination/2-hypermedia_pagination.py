@@ -62,10 +62,11 @@ class Server:
         start_index, end_index = indices
 
         return self.dataset()[start_index:end_index]
+
     def get_hyper(self, page: int, page_size: int) -> Dict:
         """
         Retrieve hypermedia pagination information.
-        
+
         Args:
             page (int): The current page number.
             page_size (int): The number of items per page.
