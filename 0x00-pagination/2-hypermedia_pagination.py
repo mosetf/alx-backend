@@ -85,4 +85,3 @@ class Server:
                 "prev_page": None,
                 "total_pages": total_pages
             }
-
