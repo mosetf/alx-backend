@@ -63,7 +63,7 @@ class Server:
 
         return self.dataset()[start_index:end_index]
 
-        def get_hyper(self, page: int, pagesize: int) -> Dict:
+        def get_hyper(self, page: int, page_size: int) -> Dict:
             """
             Retrieve hypermedia pagination information.
 
@@ -74,4 +74,14 @@ class Server:
             Returns:
                 Dict: A dictionary containing hypermedia pagination information.
             """
+            x = self.dataset()
+            total_pages = (len(x) + page_size - 1) // page_size
+            return{
+                "page_size": page_size,
+                "page": page,
+                "data": self.get_page(),
+                "next_page": None,
+                "prev_page": None,
+                "total_pages": total_pages
+            }
 
