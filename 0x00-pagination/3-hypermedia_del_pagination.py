@@ -42,11 +42,14 @@ class Server:
         and page size.
 
         Args:
-            index (int, optional): The starting index of the subset. Defaults to None.
-            page_size (int, optional): The number of items to include in the subset. Defaults to 10.
+            index (int, optional): The starting index of the subset.
+            Defaults to None.
+            page_size (int, optional): The number of items to include
+            in the subset.Defaults to 10.
 
         Returns:
-            dict: A dictionary containing the index, next_index, page_size, and data of the subset.
+            dict: A dictionary containing the index, next_index, page_size,
+            and data of the subset.
         """
         data = self.indexed_dataset()
         assert index is not None and index >= 0 and index <= max(data.keys())
