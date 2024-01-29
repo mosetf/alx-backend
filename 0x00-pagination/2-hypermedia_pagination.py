@@ -77,7 +77,7 @@ class Server:
             """
             x = self.dataset()
             total_pages = (len(x) + page_size - 1) // page_size
-            return{
+            return {
                 "page_size": page_size,
                 "page": page,
                 "data": self.get_page(),
