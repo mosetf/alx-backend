@@ -58,11 +58,12 @@ class Server:
         assert index >= 0 and index <= max(data.keys())
 
         page_data = list(data.values())[index:index + page_size]
-        next_index = index + page_size if index + page_size <= max(data.keys()) else None
+        x = page_size
+        next_index = index + page_size if index + x <= max(data.keys()) else None
 
         return {
             'index': index,
-            'next_index': next_index,
-            'page_size': len(page_data),
             'data': page_data,
+            'page_size': len(page_data),
+            'next_index': next_index,
         }
