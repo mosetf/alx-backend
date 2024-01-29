@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ Simple helper function """
-from typing import List,Dict
+from typing import List, Dict
 import csv
 import math
 
