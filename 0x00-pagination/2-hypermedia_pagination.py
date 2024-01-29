@@ -72,7 +72,8 @@ class Server:
                 pagesize (int): The number of items per page.
 
             Returns:
-                Dict: A dictionary containing hypermedia pagination information.
+                Dict: A dictionary containing hypermedia
+                pagination information.
             """
             x = self.dataset()
             total_pages = (len(x) + page_size - 1) // page_size
