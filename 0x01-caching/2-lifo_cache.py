@@ -2,3 +2,4 @@
 """
 LIFO Caching
 """
+from BaseCaching import BaseCaching
