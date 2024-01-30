@@ -2,6 +2,7 @@
 """
 FIFO caching
 """
+from BaseCaching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
