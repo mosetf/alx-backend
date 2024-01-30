@@ -3,3 +3,6 @@
 LIFO Caching
 """
 from BaseCaching import BaseCaching
+
+
+class LIFOCache(BaseCaching):
