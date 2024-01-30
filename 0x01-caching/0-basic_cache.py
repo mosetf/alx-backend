@@ -10,5 +10,12 @@ class BasicCache(BaseCaching):
     """
 
     def put(self, key, item):
-        pass
+            """
+            Add an item to the cache with the specified key.
+
+            Args:
+                key: The key to associate with the item.
+                item: The item to be added to the cache.
+            """
+            pass
     
