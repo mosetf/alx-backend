@@ -32,3 +32,12 @@ class FIFOCache(BaseCaching):
         pass
 
     def get(self, key):
+        """
+        Retrieve the value associated with the given key from the cache.
+
+        Args:
+            key: The key to retrieve the value for.
+
+        Returns:
+            The value associated with the key, or None if the key is not found in the cache.
+        """
