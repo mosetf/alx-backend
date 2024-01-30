@@ -21,4 +21,5 @@ class LIFOCache(BaseCaching):
             item: The item to be added to the cache.
         """
         pass
-        
+    
+    def get(self, key):
