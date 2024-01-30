@@ -4,3 +4,5 @@ Basic dictionary
 """
 
 
+class BasicCache(BaseCaching):
+    
