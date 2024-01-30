@@ -13,3 +13,5 @@ class FIFOCache(BaseCaching):    """
 
     Inherits from the BaseCaching class.
     """
+    def __init__(self):
+        
