@@ -20,4 +20,5 @@ class LIFOCache(BaseCaching):
             key: The key of the item.
             item: The item to be added to the cache.
         """
+        pass
         
