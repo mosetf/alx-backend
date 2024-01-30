@@ -4,7 +4,8 @@ FIFO caching
 """
 
 
-class FIFOCache(BaseCaching):    """
+class FIFOCache(BaseCaching):
+    """
     Represents a First-In-First-Out (FIFO) cache implementation.
 
     This cache follows the FIFO eviction policy, where the least
@@ -13,5 +14,9 @@ class FIFOCache(BaseCaching):    """
 
     Inherits from the BaseCaching class.
     """
+
     def __init__(self):
-        
+        """
+        Initializes a new instance of the FIFOCache class.
+        """
+        super().__init__()
