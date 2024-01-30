@@ -20,3 +20,5 @@ class FIFOCache(BaseCaching):
         Initializes a new instance of the FIFOCache class.
         """
         super().__init__()
+
+    def put(self, key, item):        
