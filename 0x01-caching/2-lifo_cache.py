@@ -32,3 +32,4 @@ class LIFOCache(BaseCaching):
             Returns:
                 The value associated with the key, or None if the key is not found in the cache.
             """
+            pass
