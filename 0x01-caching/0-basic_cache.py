@@ -2,6 +2,7 @@
 """
 Basic dictionary
 """
+from BaseCaching import BaseCaching
 
 
 class BasicCache(BaseCaching):
