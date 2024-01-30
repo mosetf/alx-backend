@@ -29,4 +29,6 @@ class FIFOCache(BaseCaching):
             key: The key to associate with the item.
             item: The item to be added to the cache.
         """
+        pass
 
+    def get(self, key):
