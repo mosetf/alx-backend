@@ -8,48 +8,45 @@ from base_caching import BaseCaching
 
 class LFUCache(BaseCaching):
     """
-    LIFOCache class represents a Last-In-First-Out (LIFO) caching system.
+    LFUCache class represents a Least Frequently Used (LFU) caching system.
     It inherits from the BaseCaching class and implements the caching
-    functionality using the LIFO strategy.
+    functionality using the LFU strategy.
     """
 
     def __init__(self):
         """
-        Initializes a new instance of the FIFOCache class.
+        Initializes a new instance of the LFUCache class.
         """
         super().__init__()
         self.cache_data = OrderedDict()
         self.key_freq = []
-
-    def put(self, key, item):
+    
+    def __reorder_items(self, mru_key):
         """
-        Add an item to the cache.
+        Reorders the items in the cache based on the Most Recently Used (MRU) key.
 
         Args:
-            key: The key of the item.
-            item: The item to be added to the cache.
-        """
-        if key is None or item is None:
-            return
-        if key not in self.cache_data:
-            if len(self.cache_data) + 1 > BaseCaching.MAX_ITEMS:
-                mru_key, _ = self.cache_data.popitem(False)
-                print("DISCARD:", mru_key)
-            self.cache_data[key] = item
-            self.cache_data.move_to_end(key, last=False)
-        else:
-            self.cache_data[key] = item
-
-    def get(self, key):
-        """
-        Retrieve the value associated with the given key from the cache.
-        Args:
-            key: The key to retrieve the value for.
-
+            mru_key (Any): The key of the Most Recently Used (MRU) item.
         Returns:
-            The value associated with the key, or None
-            if the key is not found in the cache.
+            None
         """
-        if key is not None and key in self.cache_data:
-            self.cache_data.move_to_end(key, last=False)
-        return self.cache_data.get(key, None)
+        max_positions = []
+        mru_freq = 0
+        mru_pos = 0
+        ins_pos = 0
+        for i, key_freq in enumerate(self.keys_freq):
+            if key_freq[0] == mru_key:
+                mru_freq = key_freq[1] + 1
+                mru_pos = i
+                break
+            elif len(max_positions) == 0:
+                max_positions.append(i)
+            elif key_freq[1] < self.keys_freq[max_positions[-1]][1]:
+                max_positions.append(i)
+        max_positions.reverse()
+        for pos in max_positions:
+            if self.keys_freq[pos][1] > mru_freq:
+                break
+            ins_pos = pos
+        self.keys_freq.pop(mru_pos)
+        self.keys_freq.insert(ins_pos, [mru_key, mru_freq])
