@@ -40,7 +40,6 @@ class FIFOCache(BaseCaching):
             first_key, _ = self.cache_data.popitem(False)
             print("DISCARD:", first_key)
 
-
     def get(self, key):
         """
         Retrieve the value associated with the given key from the cache.
