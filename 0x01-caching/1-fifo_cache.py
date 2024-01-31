@@ -2,7 +2,7 @@
 """
 FIFO caching
 """
-from BaseCaching import BaseCaching
+from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
@@ -30,7 +30,12 @@ class FIFOCache(BaseCaching):
             key: The key to associate with the item.
             item: The item to be added to the cache.
         """
-        pass
+        if key or item is None:
+            return
+        self.cache_data[key] = item
+
+        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+            self.cache_data.popitem(last = False)
 
     def get(self, key):
         """
