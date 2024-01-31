@@ -35,7 +35,7 @@ class FIFOCache(BaseCaching):
         self.cache_data[key] = item
 
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-            self.cache_data.popitem(last = False)
+            self.cache_data.popitem(last=False)
 
     def get(self, key):
         """
@@ -45,6 +45,7 @@ class FIFOCache(BaseCaching):
             key: The key to retrieve the value for.
 
         Returns:
-            The value associated with the key, or None if the key is not found in the cache.
+            The value associated with the key, or None if the key is
+            not found in the cache.
         """
         pass
