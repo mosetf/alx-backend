@@ -50,4 +50,4 @@ class FIFOCache(BaseCaching):
             The value associated with the key, or None if the key is
             not found in the cache.
         """
-        pass
+        return self.cache_data.get(key, None)
