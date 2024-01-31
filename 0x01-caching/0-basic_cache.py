@@ -24,7 +24,7 @@ class BasicCache(BaseCaching):
             item: The item to be added to the cache.
         """
         if key is None or item is None:
-            return 
+            return
         self.cache_data[key] = item
 
     def get(self, key):
