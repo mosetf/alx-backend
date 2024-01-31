@@ -36,15 +36,15 @@ class LIFOCache(BaseCaching):
                 print("DISCARD:", last_key)
         self.cache_data[key] = item
         self.cache_data.move_to_end(key, last=True)
-    
+
     def get(self, key):
-            """
-            Retrieve the value associated with the given key from the cache.
+        """
+        Retrieve the value associated with the given key from the cache.
+        Args:
+            key: The key to retrieve the value for.
 
-            Args:
-                key: The key to retrieve the value for.
-
-            Returns:
-                The value associated with the key, or None if the key is not found in the cache.
-            """
-            pass
+        Returns:
+            The value associated with the key, or None
+            if the key is not found in the cache.
+        """
+        return self.cache_data.get(key, None)
