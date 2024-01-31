@@ -23,9 +23,9 @@ class BasicCache(BaseCaching):
             key: The key to associate with the item.
             item: The item to be added to the cache.
         """
-        if key in self.cache_data:
-            self.cache_data[key] = item
-        self.cache_data[key].append(item)
+        if key is None or item is None:
+            return 
+        self.cache_data[key] = item
 
     def get(self, key):
         """
@@ -38,6 +38,4 @@ class BasicCache(BaseCaching):
             The value associated with the key, or None
             if the key is not found in the cache.
         """
-        if key in self.cache_data is not None:
-            return self.cache_data[item]
-        return None
+        return self.cache_data.get(key, None)
