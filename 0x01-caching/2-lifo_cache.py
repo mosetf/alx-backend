@@ -2,7 +2,7 @@
 """
 LIFO Caching
 """
-from BaseCaching import BaseCaching
+from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
