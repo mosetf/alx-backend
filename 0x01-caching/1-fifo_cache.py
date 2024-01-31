@@ -32,7 +32,7 @@ class FIFOCache(BaseCaching):
             key: The key to associate with the item.
             item: The item to be added to the cache.
         """
-        if key or item is None:
+        if key is None or item is None:
             return
         self.cache_data[key] = item
 
