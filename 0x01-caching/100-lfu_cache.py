@@ -50,3 +50,13 @@ class LFUCache(BaseCaching):
             ins_pos = pos
         self.keys_freq.pop(mru_pos)
         self.keys_freq.insert(ins_pos, [mru_key, mru_freq])
+
+    def put(self, key, item):
+            """
+            Add or update an item in the cache.
+
+            Args:
+                key: The key of the item.
+                item: The item to be added or updated.
+            """
+                    
