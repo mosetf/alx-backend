@@ -9,12 +9,6 @@ class BasicCache(BaseCaching):
     """
     BasicCache class that extends the BaseCaching class.
     """
-    def __init__(self):
-        """
-        initialize
-        """
-        super().__init__(self)
-
     def put(self, key, item):
         """
         Add an item to the cache with the specified key.
