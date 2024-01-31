@@ -20,10 +20,11 @@ class LFUCache(BaseCaching):
         super().__init__()
         self.cache_data = OrderedDict()
         self.key_freq = []
-    
+
     def __reorder_items(self, mru_key):
         """
-        Reorders the items in the cache based on the Most Recently Used (MRU) key.
+        Reorders the items in the cache based on
+        the Most Recently Used (MRU) key.
 
         Args:
             mru_key (Any): The key of the Most Recently Used (MRU) item.
@@ -77,3 +78,15 @@ class LFUCache(BaseCaching):
         else:
             self.cache_data[key] = item
             self.__reorder_items(key)
+
+    def get(self, key):
+            """
+            Retrieve the value associated with the given key from the cache.
+
+            Args:
+                key: The key to retrieve the value for.
+
+            Returns:
+                The value associated with the key, or None if the
+                key is not present in the cache.
+            """
