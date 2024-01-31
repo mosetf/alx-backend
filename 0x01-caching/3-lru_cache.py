@@ -6,7 +6,7 @@ from collections import OrderedDict
 from base_caching import BaseCaching
 
 
-class LIFOCache(BaseCaching):
+class LRUCache(BaseCaching):
     """
     LIFOCache class represents a Last-In-First-Out (LIFO) caching system.
     It inherits from the BaseCaching class and implements the caching
