@@ -19,6 +19,7 @@ class LFUCache(BaseCaching):
         """
         super().__init__()
         self.cache_data = OrderedDict()
+        self.key_freq = []
 
     def put(self, key, item):
         """
