@@ -2,6 +2,7 @@
 """
 LIFO Caching
 """
+from collections import OrderedDict
 from base_caching import BaseCaching
 
 
@@ -11,6 +12,13 @@ class LIFOCache(BaseCaching):
     It inherits from the BaseCaching class and implements the caching
     functionality using the LIFO strategy.
     """
+
+    def __init__(self):
+        """
+        Initializes a new instance of the FIFOCache class.
+        """
+        super().__init__()
+        self.cache_data = OrderedDict()
 
     def put(self, key, item):
         """
