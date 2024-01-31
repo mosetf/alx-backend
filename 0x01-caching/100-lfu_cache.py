@@ -80,13 +80,16 @@ class LFUCache(BaseCaching):
             self.__reorder_items(key)
 
     def get(self, key):
-            """
-            Retrieve the value associated with the given key from the cache.
+        """
+        Retrieve the value associated with the given key from the cache.
 
-            Args:
-                key: The key to retrieve the value for.
+        Args:
+            key: The key to retrieve the value for.
 
-            Returns:
-                The value associated with the key, or None if the
-                key is not present in the cache.
-            """
+        Returns:
+            The value associated with the key, or None if the
+            key is not present in the cache.
+        """
+        if key is not None and key in self.cache_data:
+            self.__reorder_items(key)
+        return self.cache_data.get(key, None)
