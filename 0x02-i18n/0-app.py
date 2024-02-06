@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def home():
+def home() -> any:
     """
     Renders the home page.
 
