@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 """
 Basic Flask app module
-
-This module contains a basic Flask app that uses Flask-Babel for internationalization (i18n).
-It defines a Flask app, sets up Flask-Babel configuration, and includes routes for the home/index page.
 """
 
 from flask_babel import Babel
@@ -45,7 +42,7 @@ def get_locale() -> str:
 def get_index() -> str:
     """
     Home/index page function
-    
+
     Returns:
         str: The rendered template for the index page.
     """
