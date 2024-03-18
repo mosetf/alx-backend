@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ Simple helper function """
-from typing import List
+from typing import Dict
 
 
 def index_range(page: int, page_size: int) -> List[int]:
